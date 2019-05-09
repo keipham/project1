@@ -51,8 +51,11 @@ body{
   margin-left:50px;
 }
 
-.active {
-  background-color: grey;
+body.active {
+  background-color: #332E2E;
+}
+#main.active svg path{
+  stroke: #f4f4f4;
 }
 #main{
   transition:margin-left 0.5s;
@@ -78,6 +81,30 @@ body{
 #cell:hover{
   background-color: darkblue;
   transition: 0.5s;
+}
+
+.button{
+  width: 150px;
+  height: 30px;
+  background-color: black;
+  display: block;
+  border: solid #000;
+  border-radius: 34px;
+  position: relative;
+  top: 80%;
+  left: 25%;
+  color: #ccc;
+  text-align: center;
+  font-size: 22px;
+  font-family: sans-serif;
+}
+
+.button:hover{
+  /*background-color:#ccc;
+  color: black;*/
+  transition: 0.5s;
+  /*top: 75%;*/
+  padding-top: 8px;
 }
 @media(max-width:568px){
   .navbar-nav{display:none}

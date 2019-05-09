@@ -4,7 +4,7 @@
   <title>Responsive Side Menu</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body id='body'>
   <div id="side-menu" class="side-nav" style="width: 0px">
     <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
     <a href="#">Home</a>
@@ -25,17 +25,17 @@
       </span>
 
     <label class="switch">
-      <input type="checkbox" onclick="document.getElementById('main').classList.toggle('active');">
+      <input type="checkbox" onclick="night(this)">
       <span class="slider round"></span>
     </label>
   </div>
-  <div id="cell-container">
-    <div id="cell"></div>
-    <div id="cell"></div>
-    <div id="cell"></div>
-    <div id="cell"></div>
-    <div id="cell"></div>
-    <div id="cell"></div>
+  <div id="cell-container" ondragstart="dragstart(event)" ondragover="allowDrop(event)" ondrop="drop(event)">
+    <div id="cell"><div class="button">1</div></div>
+    <div id="cell"><div class="button">2</div></div>
+    <div id="cell"><div class="button">3</div></div>
+    <div id="cell"><div class="button">4</div></div>
+    <div id="cell"><div class="button">5</div></div>
+    <div id="cell"><div class="button">6</div></div>
   </div>
 
   <script>
@@ -54,6 +54,21 @@
     function closeSlideMenu(){
       document.getElementById('side-menu').style.width = '0';
       document.getElementById('main').style.marginLeft = '0';
+    }
+    var id;
+    function allowDrop(ev){
+      ev.preventDefault();
+    }
+    function dragstart(ev){
+      id=ev.target.id;
+    }
+    function drop(ev){
+      ev.target.append(document.getElementById(id));
+    }
+    function night(){
+      console.log('je');
+      document.getElementById('body').classList.toggle('active');
+      document.getElementById('main').classList.toggle('active');
     }
   </script>
 </body>
